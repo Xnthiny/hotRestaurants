@@ -57,20 +57,23 @@ app.get("/api/tables/:name", function(req, res) {
 });
 
 // Create New table reservations - takes in JSON input
-app.post("/api/characters", function(req, res) {
+app.post("/api/reserve", function(req, res) {
+  res.send('Post request to the homepage')
+  console.log('test')
+  console.log(res)
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newcharacter = req.body;
+  var newReserve = req.body;
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+  //newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newcharacter);
+  console.log(newReserve);
 
-  characters.push(newcharacter);
+  tables.push(newReserve);
 
-  res.json(newcharacter);
+  res.json(newReserve);
 });
 
 // Starts the server to begin listening
