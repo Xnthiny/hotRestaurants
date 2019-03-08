@@ -17,12 +17,12 @@ $(document).ready(function () {
                   "Postman-Token": "86e15849-9f31-487a-bd03-9b4f68837187"
                 },
                 "processData": false,
-                "data": {
+                "data": JSON.stringify({
                     "name": $("#reserve-name"),
                     "phoneNum": $("#reserve-phone"),
                     "email": $("#reserve-email"),
                     "uniqueID": $("#reserve-id")
-                }
+                })
               }
               
               $.ajax(settings).done(function (response) {
