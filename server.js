@@ -16,31 +16,12 @@ app.use(express.json());
 // =============================================================
 var tables = [
   {
-    name: "user1",
-    phoneNum: "786.555.1212",
-    email: "user1@gmail.com",
-    uniqueID: 123
+    
   }
 ];
 
 
-$(document).on("click", ".submit", function () {
 
-  event.preventDefault();
-  alert("Yay! You are officially booked!");
-  //populate tables array
-  var iNext = tables.length;
-  table[iNext].name = $('#reserve-name');
-  table[iNext].phoneNum = $('#reserve-number');
-  table[iNext].email = $('#reserve-email');
-  table[iNext].uniqueID = $('#reserve-id');
-
-  $('#reserve-name').empty();
-  $('#reserve-number').empty();
-  $('#reserve-email').empty();
-  $('#reserve-id').empty();
-
-});
 
 
 // Routes
@@ -80,20 +61,20 @@ app.get("/api/tables/:name", function(req, res) {
 });
 
 // Create New table reservations - takes in JSON input
-app.post("/api/characters", function(req, res) {
+app.post("/api/reserve", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newcharacter = req.body;
+  var newReservation = req.body;
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+  //newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newcharacter);
+  console.log(newReservation);
 
-  characters.push(newcharacter);
+  tables.push(newReservation);
 
-  res.json(newcharacter);
+  res.json(newReservation);
 });
 
 // Starts the server to begin listening
