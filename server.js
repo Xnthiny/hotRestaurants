@@ -23,29 +23,6 @@ var tables = [
   }
 ];
 
-
-$(document).on("click", ".submit", function () {
-
-  event.preventDefault();
-  alert("Yay! You are officially booked!");
-  //populate tables array
-  var iNext = tables.length;
-  table[iNext].name = $('#reserve-name');
-  table[iNext].phoneNum = $('#reserve-number');
-  table[iNext].email = $('#reserve-email');
-  table[iNext].uniqueID = $('#reserve-id');
-
-  $('#reserve-name').empty();
-  $('#reserve-number').empty();
-  $('#reserve-email').empty();
-  $('#reserve-id').empty();
-
-});
-
-
-// Routes
-// =============================================================
-
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
